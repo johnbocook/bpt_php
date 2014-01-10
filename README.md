@@ -61,4 +61,65 @@ $dates = $bpt->date_list_call('a developer id', 123456, 123456, true)
 
 ### price_list_call($dev_id[string], $event_id[int], $date_id[int])
 
-All of those fields are required. 
+All of those fields are required.
+
+
+More Real Life Example
+----------------------
+
+```php
+<?php 
+    
+    require('bpt_php.php');
+    $bptAPI = new BptApi;
+    $sales = $bptAPI->sales_list_call('devid', 'username', 123456);
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sales List Test!</title>
+
+</head>
+<body>
+    <h1>Sales List</h1>
+    <table>
+        <tr>
+            <th>Order Time</th>
+            <th>Date ID</th>
+            <th>Price ID</th>
+            <th>Quantity</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>ZIP</th>
+            <th>Country</th>
+            <th>E-Mail</th>
+            <th>Phone</th>
+            <th>Last 4 of CC</th>
+            <th>Shipping</th>
+            <th>Order Notes</th>
+            <th>Ticket Number</th>
+            <th>Section</th>
+            <th>Row</th>
+            <th>Seat</th> 
+        </tr>
+        <?php 
+            foreach ($sales as $single_sale ) {
+                echo "<tr>";
+
+                foreach($single_sale as $sale_data) {
+                    echo '<td>'.$sale_data.'</td>';
+                }
+
+                echo "</tr>";
+            }
+        ?>
+        </tr>
+    </table>
+
+</body>
+</html>
+```
