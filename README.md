@@ -63,7 +63,6 @@ $dates = $bpt->date_list_call('a developer id', '', '', true)
 All arguments are required.
 
 
-<<<<<<< HEAD
 ### sales_list_call($dev_id[string], $account[string], $event_id[int], $date_id[int], $price_id[int])
 
 Only the dev_id and account are required. The account should be the
@@ -87,9 +86,6 @@ $sales = $bpt->sales_list_call('devid', 'authorized account', '', '', '');
 
 ```
 
-
-=======
->>>>>>> ed0f7c0080b982e696132dc5f3ca39e9b3e1afa9
 A Realish Lifey Example
 -----------------------
 
