@@ -55,12 +55,36 @@ prices attached to this date, just pass true.
 require('bpt_api.php');
 $bpt = new BptApi;
 
-$dates = $bpt->date_list_call('a developer id', 123456, 123456, true)
+$dates = $bpt->date_list_call('a developer id', '', '', true)
 ```
 
 ### price_list_call($dev_id[string], $event_id[int], $date_id[int])
 
-All of those fields are required.
+All arguments are required.
+
+
+### sales_list_call($dev_id[string], $account[string], $event_id[int], $date_id[int], $price_id[int])
+
+Only the dev_id and account are required. The account should be the
+username of the producer.
+
+#### Important BPT Side Configuration
+The account you are accessing must be added to the [Authorized
+Accounts](https://www.brownpapertickets.com/developer/accounts.html) 
+list on your developer account. You need the producer's username and 
+login to add them. 
+
+If you are trying to access an account that is listed in the
+Authorized account section and still getting access denied,
+try removing and adding the account.
+
+```php
+require('bpt_api.php');
+$bpt = new BptApi;
+
+$sales = $bpt->sales_list_call('devid', 'authorized account', '', '', '');
+
+```
 
 
 A Realish Lifey Example
