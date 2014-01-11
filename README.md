@@ -19,7 +19,6 @@ Simply require the bpt class and create a new instance of it.
 require('bpt_api.php');
 
 $bpt = new BptApi;
-
 ```
 
 Methods

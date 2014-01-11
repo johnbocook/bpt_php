@@ -234,13 +234,13 @@ class BptApi {
                         'event_state'=>$event->e_state,
                         'event_zip'=>$event->e_zip,
                         'short_description'=>$event->description,
-                        'full_description'=>$event->e_description,
-                        // if dates is true, call the date list call
-                        if($dates == true) {
-                            // Call date_list with $this so that you can cast it from a new instance of the class
-                            'dates'=>array($this->date_list_call($dev_id, $event_id, $client_id, $prices) )
-                        }
+                        'full_description'=>$event->e_description
                     );
+                    // if dates is true, call the date list call
+                    if($dates == true) {
+                        // Call date_list with $this so that you can cast it from a new instance of the class
+                       $single_event['dates'] = array($this->date_list_call($dev_id, $event_id, '', $prices));
+                    }
 
                     $events[] = $single_event;
             }
@@ -248,9 +248,9 @@ class BptApi {
         return $events;
     }
 
-    public function date_list_call($dev_id, $event_id, $prices = false) {
+    public function date_list_call($dev_id, $event_id, $date_id = '', $prices = false) {
 
-        $date_call = 'https://www.brownpapertickets.com/api2/datelist?id='.$dev_id.'&event_id='.$event_id;
+        $date_call = 'https://www.brownpapertickets.com/api2/datelist?id='.$dev_id.'&event_id='.$event_id.'&date_id='.$date_id;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $date_call);
@@ -279,13 +279,14 @@ class BptApi {
                     'date_end'=>$date->dateend,
                     'time_start'=>$date->timestart,
                     'time_end'=>$date->timeend,
-                    'date_available'=>$date->date_available,
-                    // If prices is true, call the prices_list_call
-                    if($prices == true) {
-                    // Call price_list with $this so that you can cast it from a new instance of the class
-                    'prices'=>array($this->price_list_call( $dev_id, $event_id, $date_id))
-                    }
+                    'date_available'=>$date->date_available
+                    
                 );
+                // If prices is true, call the prices_list_call
+                if($prices == true) {
+                    // Call price_list with $this so that you can cast it from a new instance of the class
+                    $single_date['prices'] = array($this->price_list_call( $dev_id, $event_id, $date_id));
+                }
 
                 $dates[] = $single_date;
             }
