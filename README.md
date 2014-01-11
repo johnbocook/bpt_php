@@ -23,7 +23,7 @@ $bpt = new BptApi;
 
 Methods
 -------
-** All methods require the dev_id. All methods return a multidimensional 
+**All methods require the dev_id. All methods return a multidimensional 
 array with the requested data.**
 
 ### event_list_call($dev_id[string], $client_id[int], $event_id[int], $dates[boolean], $prices[boolean])
@@ -63,8 +63,8 @@ $dates = $bpt->date_list_call('a developer id', 123456, 123456, true)
 All of those fields are required.
 
 
-More Real Life Example
-----------------------
+A Realish Lifey Example
+-----------------------
 
 ```php
 <?php 
