@@ -2,6 +2,7 @@ BptApi
 ========
 
 A PHP class with methods to interact with the Brown Paper Tickets API.
+*Please Note, If your using an "Authorized Account" through BrownPaperTickets.com and not the Main account, you will not have access to many of the the Developer or Account tools and Documentation as well as be missing the header navigation items.
 
 Usage
 -----
